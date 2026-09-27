@@ -1,0 +1,443 @@
+:root{--bg:#f7f6f3;--surface:#fff;--soft:#eeece7;--text:#171717;--muted:#68655f;--line:#dedbd4;--accent:#171717;--max:1120px;--shadow:0 18px 50px rgba(20,20,20,.08)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}a{color:inherit;text-decoration:none}button{font:inherit}.container{width:min(var(--max),calc(100% - 40px));margin:auto}
+.site-header{position:sticky;top:0;z-index:20;background:rgba(247,246,243,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.nav{min-height:74px;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:800;letter-spacing:.12em}.brand span{font-family:Georgia,serif}.nav-links{display:flex;gap:22px;font-size:.84rem}.nav-links a{color:var(--muted);transition:.2s}.nav-links a:hover{color:var(--text)}.nav-actions{display:flex;gap:8px}.icon-btn,.menu-toggle{border:1px solid var(--line);background:var(--surface);color:var(--text);cursor:pointer;padding:7px 10px}.menu-toggle{display:none}
+.hero{min-height:calc(100vh - 74px);display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:75px;padding:80px 0}.eyebrow{font-size:.7rem;letter-spacing:.18em;font-weight:800;color:var(--muted);margin-bottom:15px}.hero h1,.section h2,.project-content h3,.contact-card h2,.modal-panel h2,.timeline h3,.org-card h3{font-family:"Playfair Display",Georgia,serif;line-height:1.12}.hero h1{font-size:clamp(2.8rem,6vw,5.4rem);letter-spacing:-.045em}.hero h1 em{font-style:normal;font-weight:600}.hero-text{max-width:650px;color:var(--muted);font-size:1.05rem;margin:26px 0}.hero-actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;border:1px solid var(--text);font-size:.86rem;font-weight:700;transition:.25s}.btn-primary{background:var(--accent);color:#fff}.btn:hover{transform:translateY(-2px);box-shadow:var(--shadow)}.btn-secondary:hover{background:var(--text);color:#fff}
+.avatar-card{min-height:430px;border:1px solid var(--line);background:var(--surface);display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);overflow:hidden}.avatar-card img{width:260px;height:330px;object-fit:cover;border:1px solid var(--line);display:block}
+.section{padding:105px 0}.section-alt{background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.section-heading{display:flex;align-items:baseline;gap:16px;margin-bottom:42px}.section-heading span{font-size:.7rem;letter-spacing:.15em;color:var(--muted);font-weight:800}.section h2{font-size:clamp(2rem,4vw,3.1rem)}
+.about-grid{display:grid;grid-template-columns:1fr .7fr;gap:80px}.lead{font-size:1.28rem;line-height:1.6;margin-bottom:18px}.about-grid p:not(.lead),.muted{color:var(--muted)}.info-box{border-top:1px solid var(--text)}.info-box div{padding:17px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:20px}.info-box span{color:var(--muted)}.info-box strong{text-align:right}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}.card,.experience-card,.skill-card,.cert-card{background:var(--bg);padding:32px}.card{background:var(--surface)}.card h3,.experience-card h3,.skill-card h3,.cert-card h3{margin-bottom:10px}.experience-card p,.skill-card p,.cert-card p,.card p{color:var(--muted)}
+.project-card{border:1px solid var(--line);background:var(--surface);display:grid;grid-template-columns:100px 1fr;box-shadow:var(--shadow)}.project-number{padding:30px;border-right:1px solid var(--line);color:var(--muted);font-weight:800}.project-content{padding:45px}.project-content h3{font-size:clamp(2rem,5vw,3.5rem);margin-bottom:18px}.project-content>p:not(.eyebrow){max-width:760px;color:var(--muted)}.tags{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0}.tags span{border:1px solid var(--line);padding:5px 10px;font-size:.7rem;color:var(--muted)}.text-link{display:inline-block;border:0;background:none;cursor:pointer;font-weight:700;font-size:.84rem;border-bottom:1px solid currentColor}
+.timeline{border-left:1px solid var(--line);padding-left:28px}.timeline-item{position:relative;margin-bottom:38px}.timeline-dot{position:absolute;left:-34px;top:9px;width:10px;height:10px;background:var(--text);border-radius:50%}.timeline h3{font-size:1.75rem;margin-bottom:8px}.timeline p:last-child{color:var(--muted)}
+.org-card{border:1px solid var(--line);background:var(--surface);padding:40px;box-shadow:var(--shadow)}.org-card h3{font-size:2rem;margin-bottom:10px}.cert-card{background:var(--surface)}.cert-card a{margin-top:18px}
+.contact-card{text-align:center;background:var(--text);color:#fff;padding:80px 30px}.contact-card .eyebrow,.contact-card>p:not(.eyebrow){color:#c5c2bc}.contact-card h2{font-size:clamp(2.5rem,6vw,4.5rem);margin-bottom:18px}.contact-card>p:not(.eyebrow){max-width:600px;margin:0 auto 30px}.contact-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.contact-links a{border:1px solid #777;padding:10px 17px;font-size:.82rem}.footer{border-top:1px solid var(--line);padding:25px 0;font-size:.76rem;color:var(--muted)}.footer-inner{display:flex;justify-content:space-between;gap:20px}
+/* Animasi dibuang supaya konten dijamin langsung tampil */
+.reveal{opacity:1;transform:none}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;place-items:center;padding:20px;z-index:50}.modal.open{display:grid}.modal-panel{position:relative;width:min(680px,100%);background:var(--surface);padding:45px;box-shadow:0 25px 80px rgba(0,0,0,.2)}.modal-panel h2{font-size:2.5rem;margin-bottom:18px}.modal-panel p{color:var(--muted)}.modal-close{position:absolute;right:18px;top:10px;border:0;background:none;font-size:2rem;cursor:pointer}
+body.dark{--bg:#171717;--surface:#202020;--soft:#1d1d1d;--text:#f2f0eb;--muted:#aaa7a0;--line:#373737;--accent:#f2f0eb;--shadow:0 18px 50px rgba(0,0,0,.22)}body.dark .site-header{background:rgba(23,23,23,.92)}body.dark .btn-primary{color:#171717}
+@media(max-width:850px){.menu-toggle{display:block}.nav-links{position:absolute;left:20px;right:20px;top:68px;background:var(--surface);border:1px solid var(--line);padding:18px;display:none;flex-direction:column;gap:13px;box-shadow:var(--shadow)}.nav-links.open{display:flex}.hero{grid-template-columns:1fr;gap:45px;min-height:auto}.avatar-card{min-height:340px}.about-grid{grid-template-columns:1fr;gap:40px}.project-card{grid-template-columns:1fr}.project-number{border-right:0;border-bottom:1px solid var(--line);padding:17px 25px}}
+@media(max-width:560px){.container{width:min(var(--max),calc(100% - 28px))}.hero{padding:65px 0}.hero h1{font-size:2.65rem}.grid{grid-template-columns:1fr}.section{padding:78px 0}.project-content{padding:30px}.info-box div{flex-direction:column;gap:3px}.info-box strong{text-align:left}.footer-inner{flex-direction:column}.modal-panel{padding:32px 24px}}
+
+
+/* =========================================================
+   GHIFARI PORTFOLIO — DARK PANEL THEME
+   Inspired by the provided reference:
+   charcoal + emerald + cyan, boxed panels, no white cards.
+   ========================================================= */
+
+:root {
+  --bg: #091116;
+  --surface: #111c22;
+  --surface-2: #15242b;
+  --soft: #0d171d;
+  --text: #edf7f4;
+  --muted: #a7bab6;
+  --line: #263a40;
+  --accent: #10b981;
+  --accent-2: #22d3ee;
+  --accent-3: #34d399;
+  --shadow: 0 18px 50px rgba(0,0,0,.28);
+}
+
+/* ---------- Global ---------- */
+
+html,
+body {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+body {
+  background:
+    radial-gradient(circle at 90% 5%, rgba(34,211,238,.055), transparent 30rem),
+    radial-gradient(circle at 5% 20%, rgba(16,185,129,.055), transparent 30rem),
+    var(--bg) !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text) !important;
+}
+
+p,
+li {
+  color: var(--muted);
+}
+
+.text-primary {
+  color: var(--accent-3) !important;
+}
+
+.text-secondary,
+.muted {
+  color: var(--muted) !important;
+}
+
+a {
+  color: var(--accent-2);
+}
+
+a:hover {
+  color: #67e8f9;
+}
+
+/* ---------- Navbar ---------- */
+
+.navbar,
+.site-header {
+  background: rgba(9,17,22,.96) !important;
+  border-bottom: 1px solid var(--line) !important;
+  box-shadow: 0 4px 22px rgba(0,0,0,.20);
+  backdrop-filter: blur(14px);
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link,
+.navbar a,
+.brand,
+.nav-links a {
+  color: var(--text) !important;
+}
+
+.navbar .nav-link:hover,
+.nav-links a:hover {
+  color: var(--accent-2) !important;
+}
+
+.navbar-toggler {
+  border-color: var(--line) !important;
+}
+
+.navbar-toggler-icon {
+  filter: invert(1);
+}
+
+.icon-btn,
+.menu-toggle {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  border-color: var(--line) !important;
+}
+
+/* ---------- Hero image panel ---------- */
+
+.avatar-card,
+.border.rounded {
+  background: var(--surface) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 14px !important;
+  box-shadow: var(--shadow);
+}
+
+.avatar-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.avatar-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border: 1px solid rgba(34,211,238,.12);
+  border-radius: inherit;
+}
+
+.avatar-card img {
+  border-color: var(--line) !important;
+}
+
+/* ---------- Sections ---------- */
+
+.section-alt,
+.bg-light,
+.bg-body-tertiary {
+  background: var(--soft) !important;
+  border-color: var(--line) !important;
+}
+
+/* ---------- ALL CARDS / PANELS ---------- */
+
+.card,
+.experience-card,
+.skill-card,
+.cert-card,
+.project-card,
+.org-card,
+.info-box,
+.modal-panel {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+/* Bootstrap .card and .bg-light were causing the white boxes */
+.card,
+.bg-light,
+.bg-body-tertiary {
+  background-color: var(--surface) !important;
+  color: var(--text) !important;
+}
+
+.card h3,
+.card h4,
+.card h5,
+.card h6,
+.experience-card h3,
+.skill-card h3,
+.cert-card h3,
+.org-card h3 {
+  color: var(--text) !important;
+}
+
+.card p,
+.experience-card p,
+.skill-card p,
+.cert-card p,
+.org-card p,
+.card li {
+  color: var(--muted) !important;
+}
+
+/* Grid cards get actual separated boxes instead of a white grid */
+.grid {
+  background: transparent !important;
+  border: 0 !important;
+  gap: 18px !important;
+}
+
+.grid > * {
+  border: 1px solid var(--line) !important;
+  border-radius: 12px;
+}
+
+/* Hover = subtle cyan/emerald edge */
+.card:hover,
+.experience-card:hover,
+.skill-card:hover,
+.cert-card:hover,
+.org-card:hover {
+  border-color: rgba(34,211,238,.35) !important;
+  box-shadow:
+    0 18px 50px rgba(0,0,0,.32),
+    0 0 24px rgba(34,211,238,.035);
+  transform: translateY(-2px);
+  transition: .2s ease;
+}
+
+/* ---------- Info/profile panel ---------- */
+
+.info-box {
+  overflow: hidden;
+}
+
+.info-box div {
+  border-bottom-color: var(--line) !important;
+}
+
+.info-box span {
+  color: var(--muted) !important;
+}
+
+.info-box strong {
+  color: var(--text) !important;
+}
+
+/* ---------- Skill cards ---------- */
+
+.skill-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-card::after {
+  content: "";
+  display: block;
+  width: 42px;
+  height: 3px;
+  margin-top: 24px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  border-radius: 999px;
+}
+
+.skill-card:nth-child(4)::after {
+  background: linear-gradient(90deg, #8b5cf6, var(--accent-2));
+}
+
+/* ---------- Project / timeline ---------- */
+
+.project-card {
+  overflow: hidden;
+}
+
+.project-number {
+  border-color: var(--line) !important;
+  color: var(--accent-2) !important;
+}
+
+.timeline {
+  border-color: var(--line) !important;
+}
+
+.timeline-dot {
+  background: var(--accent) !important;
+  box-shadow: 0 0 0 5px rgba(16,185,129,.10);
+}
+
+.tags span {
+  border-color: var(--line) !important;
+  color: var(--muted) !important;
+  background: var(--surface-2);
+}
+
+/* ---------- Section headings ---------- */
+
+.section-heading span,
+.eyebrow {
+  color: var(--accent-2) !important;
+}
+
+.section h2 {
+  color: var(--text) !important;
+}
+
+.section-heading::after {
+  content: "";
+  display: block;
+  width: 46px;
+  height: 3px;
+  margin-left: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  border-radius: 999px;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn-primary {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: #04120d !important;
+  box-shadow: 0 8px 24px rgba(16,185,129,.18);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: var(--accent-3) !important;
+  border-color: var(--accent-3) !important;
+  color: #04120d !important;
+}
+
+.btn-secondary {
+  background: transparent !important;
+  color: var(--accent-2) !important;
+  border-color: var(--accent-2) !important;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background: var(--accent-2) !important;
+  color: #061116 !important;
+}
+
+/* ---------- Contact: same visual language as panels, but stronger ---------- */
+
+.contact-card {
+  background:
+    linear-gradient(135deg, #101d23, #0d171c) !important;
+  color: var(--text) !important;
+  border: 1px solid rgba(34,211,238,.22);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+.contact-card .eyebrow,
+.contact-card > p:not(.eyebrow) {
+  color: var(--muted) !important;
+}
+
+.contact-card h2 {
+  color: var(--text) !important;
+}
+
+.contact-links a {
+  border-color: var(--line) !important;
+  color: var(--accent-2) !important;
+  background: rgba(17,28,34,.55);
+  border-radius: 7px;
+}
+
+.contact-links a:hover {
+  border-color: var(--accent-2) !important;
+  background: rgba(34,211,238,.08);
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+  background: #070d11 !important;
+  border-top-color: var(--line) !important;
+  color: var(--muted) !important;
+}
+
+/* ---------- Modal ---------- */
+
+.modal {
+  background: rgba(0,0,0,.72) !important;
+}
+
+.modal-panel {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+}
+
+.modal-panel p {
+  color: var(--muted) !important;
+}
+
+.modal-close {
+  color: var(--text) !important;
+}
+
+/* ---------- Form controls ---------- */
+
+.form-control,
+.form-select {
+  background: var(--surface-2) !important;
+  color: var(--text) !important;
+  border-color: var(--line) !important;
+}
+
+.form-control::placeholder {
+  color: #718782 !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background: var(--surface-2) !important;
+  color: var(--text) !important;
+  border-color: var(--accent-2) !important;
+  box-shadow: 0 0 0 .2rem rgba(34,211,238,.10) !important;
+}
+
+::selection {
+  background: rgba(16,185,129,.35);
+  color: #fff;
+}
+
+/* ---------- Existing dark-mode toggle compatibility ---------- */
+
+body.dark {
+  --bg: #091116;
+  --surface: #111c22;
+  --soft: #0d171d;
+  --text: #edf7f4;
+  --muted: #a7bab6;
+  --line: #263a40;
+  --accent: #10b981;
+  --shadow: 0 18px 50px rgba(0,0,0,.28);
+}
